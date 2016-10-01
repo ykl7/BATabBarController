@@ -42,12 +42,12 @@ static double const BAIconPaddingWithText = -25.0;
 
 #pragma mark - Lifecyle
 
-- (id)initWithImage:(UIImage *)image selectedImage:(UIImage *)selectedImage {
+- (id)initWithImage:(UIImage *)image selectedImage:(UIImage *)selectedImage badgeValue:(NSString *)badgeValue {
     
     self = [self init];
     
     if (self) {
-        [self customInitWithImage:image selectedImage:selectedImage];
+        [self customInitWithImage:image selectedImage:selectedImage badgeValue:badgeValue];
     }
     
     return self;
@@ -55,7 +55,7 @@ static double const BAIconPaddingWithText = -25.0;
     
 }
 
-- (id)initWithImage:(UIImage *)image selectedImage:(UIImage *)selectedImage  title:(NSAttributedString*)title {
+- (id)initWithImage:(UIImage *)image selectedImage:(UIImage *)selectedImage  title:(NSAttributedString*)title badgeValue:(NSString *)badgeValue {
     
     self = [self init];
     
@@ -67,7 +67,7 @@ static double const BAIconPaddingWithText = -25.0;
         self.title.textAlignment = NSTextAlignmentCenter;
         self.title.numberOfLines = 0;
         
-        [self customInitWithImage:image selectedImage:selectedImage];
+        [self customInitWithImage:image selectedImage:selectedImage badgeValue:badgeValue];
 
     }
     
@@ -108,7 +108,7 @@ static double const BAIconPaddingWithText = -25.0;
 
 #pragma mark - Private
 
-- (void)customInitWithImage:(UIImage*)unselectedImage selectedImage:(UIImage*)selectedImage {
+- (void)customInitWithImage:(UIImage*)unselectedImage selectedImage:(UIImage*)selectedImage badgeValue:(NSString *)badgeValue  {
     //since we're animating the layer, we need to redraw when we rotate the device
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -131,6 +131,9 @@ static double const BAIconPaddingWithText = -25.0;
     self.unselectedImageView = [[UIImageView alloc] initWithImage:unselectedImage];
     self.unselectedImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.innerTabBarItem addSubview:self.unselectedImageView];
+    
+    //create badge value
+    self.badgeValue = badgeValue;
     
     [self addConstraintsToImageViews];
 }

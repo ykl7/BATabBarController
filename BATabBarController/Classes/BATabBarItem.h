@@ -56,18 +56,9 @@ UIView that houses the selected/unselected icons
 @property (nonatomic,strong) UIImageView *selectedImageView;
 
 /**
- Custom init
- 
- @param image
- UIImage of the unselected state
- @param selectedImage
- UIImage of the selected state
- @param title
- tile of the tab
- @return a BATabBarItem with the associated images and title
-
+ Badge value for tab
  */
-- (id)initWithImage:(UIImage*)image selectedImage:(UIImage*)selectedImage title:(NSAttributedString*)title;
+@property (nonatomic, strong) NSString *badgeValue;
 
 /**
  Custom init
@@ -76,9 +67,27 @@ UIView that houses the selected/unselected icons
  UIImage of the unselected state
  @param selectedImage
  UIImage of the selected state
+ @param title
+ tile of the tab
+ @param badgeValue
+ NSString of tab bar item
+ @return a BATabBarItem with the associated images and title
+
+ */
+- (id)initWithImage:(UIImage*)image selectedImage:(UIImage*)selectedImage title:(NSAttributedString*)title badgeValue:(NSString *)badgeValue;
+
+/**
+ Custom init
+ 
+ @param image
+ UIImage of the unselected state
+ @param selectedImage
+ UIImage of the selected state
+ @param badgeValue
+ NSString of tab bar item
  @return a BATabBarItem with the associated images
 */
-- (id)initWithImage:(UIImage*)image selectedImage:(UIImage*)selectedImage;
+- (id)initWithImage:(UIImage*)image selectedImage:(UIImage*)selectedImage badgeValue:(NSString *)badgeValue;
 
 /**
  Hides the outline as a tab transitions to unselected

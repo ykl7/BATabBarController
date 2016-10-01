@@ -19,7 +19,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   BATabBarController:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   BATabBarController: 4e4f7841f20fe516cee97d349a94c185a489cd6e
@@ -31,4 +31,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: e27aacb833b1c54c4daa32e1b449fc47637c3d10
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
